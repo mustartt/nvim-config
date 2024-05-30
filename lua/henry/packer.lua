@@ -43,5 +43,8 @@ return require('packer').startup(function(use)
       'nvim-tree/nvim-web-devicons', -- optional
     },
   }
- 
+  use "nvim-lua/plenary.nvim" 
+  use 'nmac427/guess-indent.nvim'
+
 end)
+
