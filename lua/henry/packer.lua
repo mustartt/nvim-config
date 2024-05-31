@@ -46,5 +46,8 @@ return require('packer').startup(function(use)
   use "nvim-lua/plenary.nvim" 
   use 'nmac427/guess-indent.nvim'
 
+  -- debugger
+  use 'mfussenegger/nvim-dap'
+  use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } }
 end)
 
