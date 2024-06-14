@@ -16,7 +16,7 @@ return require('packer').startup(function(use)
     'rose-pine/neovim',
     as = 'rose-pine',
     config = function()
-	vim.cmd('colorscheme rose-pine')
+    	vim.cmd('colorscheme rose-pine')
     end
   }
 
@@ -37,7 +37,7 @@ return require('packer').startup(function(use)
   use { 'mbbill/undotree' }
   use { 'tpope/vim-fugitive' }
   use { 'junegunn/gv.vim' }
-
+  use { 'nvim-lualine/lualine.nvim' }
   use {
     'nvim-tree/nvim-tree.lua',
     requires = {
