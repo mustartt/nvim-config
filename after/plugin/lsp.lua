@@ -16,7 +16,6 @@ vim.keymap.set('n', '<leader>f', function()
     vim.lsp.buf.format { async = true }
 end, bufopts)
 
-
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
 vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
 vim.keymap.set('i', '<C-p>', vim.lsp.buf.signature_help, bufopts)
@@ -36,3 +35,10 @@ vim.keymap.set('n', '<leader>wl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 end, bufopts)
 
+local cmp = require('cmp')
+
+cmp.setup({
+    mapping = cmp.mapping.preset.insert({
+        ['<CR>'] = cmp.mapping.confirm({select = false}),
+    }),
+})
