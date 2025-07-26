@@ -35,4 +35,23 @@ dap.configurations.cpp = {
   },
 }
 
+-- Python
+dap.adapters.python = {
+  type = 'executable',
+  command = vim.fn.exepath('python'),
+  args = { '-m', 'debugpy.adapter' },
+}
+
+dap.configurations.python = {
+  {
+    type = 'python',
+    request = 'launch',
+    name = 'Launch file',
+    program = '${file}',
+    pythonPath = function()
+      return vim.fn.exepath('python')
+    end,
+  },
+}
+
 vim.keymap.set('n', '<leader>dap', dapui.toggle, {})

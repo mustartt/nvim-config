@@ -5,6 +5,8 @@ lsp.preset('recommended')
 require'lspconfig'.clangd.setup{}
 require'lspconfig'.pyright.setup{}
 require'lspconfig'.bashls.setup{}
+require'lspconfig'.cmake.setup{}
+require'lspconfig'.rust_analyzer.setup{}
 
 lsp.setup()
 
@@ -46,7 +48,7 @@ cmp.setup({
             else
                 fallback()
             end
-        end, {"i","s","c",}),
+        end, {"i","s"}),
         ['<CR>'] = cmp.mapping.confirm({select = true}),
     })
 })
