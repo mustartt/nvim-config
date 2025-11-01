@@ -1,14 +1,17 @@
-local lsp = require("lsp-zero")
+-- vim lsp configuration
+vim.lsp.config('*', {
+  capabilities = {
+    textDocument = {
+      semanticTokens = {
+        multilineTokenSupport = true,
+      }
+    }
+  },
+  root_markers = { '.git' },
+})
 
-lsp.preset('recommended')
-
-require'lspconfig'.clangd.setup{}
-require'lspconfig'.pyright.setup{}
-require'lspconfig'.bashls.setup{}
-require'lspconfig'.cmake.setup{}
-require'lspconfig'.rust_analyzer.setup{}
-
-lsp.setup()
+vim.lsp.config('clangd', {})
+vim.lsp.enable('clangd')
 
 -- Mappings.
 -- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -20,7 +23,6 @@ end, bufopts)
 
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
 vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
-vim.keymap.set('i', '<C-p>', vim.lsp.buf.signature_help, bufopts)
 
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
@@ -40,6 +42,10 @@ end, bufopts)
 local cmp = require('cmp')
 
 cmp.setup({
+    sources = cmp.config.sources({
+      { name = 'nvim_lsp' },
+      { name = 'buffer' },
+    }),
     mapping = cmp.mapping.preset.insert({
         ['<C-Space>'] = cmp.mapping.complete(),
         ["<Tab>"] = cmp.mapping(function(fallback)
