@@ -24,7 +24,7 @@ local function my_on_attach(bufnr)
   vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
 end
 
-vim.keymap.set('n', '<leader>tree', api.tree.toggle, {})
+vim.keymap.set('n', '<leader>t', api.tree.toggle, {})
 
 require("nvim-tree").setup({
   on_attach = my_on_attach

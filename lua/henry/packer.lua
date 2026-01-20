@@ -21,7 +21,7 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.6',
+    'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
 
@@ -46,7 +46,7 @@ return require('packer').startup(function(use)
     }
   }
 
-  use { 'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'} }
+  use { 'nvim-treesitter/nvim-treesitter' }
   use { 'mbbill/undotree' }
   use { 'tpope/vim-fugitive' }
   use { 'junegunn/gv.vim' }
