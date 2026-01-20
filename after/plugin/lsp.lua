@@ -10,8 +10,8 @@ vim.lsp.config('*', {
   root_markers = { '.git' },
 })
 
-vim.lsp.config('clangd', {})
 vim.lsp.enable('clangd')
+vim.lsp.enable('sourcekit')
 
 -- Mappings.
 -- See `:help vim.lsp.*` for documentation on any of the below functions
