@@ -12,7 +12,13 @@ vim.o.expandtab = true
 vim.o.scrolloff = 8
 
 vim.filetype.add({
-    extension = {
-        ll = 'llvm'
-    }
+  extension = {
+    ll = 'llvm'
+  }
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function()
+    pcall(vim.treesitter.start)
+  end,
 })
