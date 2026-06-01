@@ -7,10 +7,18 @@ return {
 
     telescope.setup({
       defaults = {
-        layout_strategy = "vertical",
+        layout_strategy = "flex",
         layout_config = {
+          flex = { flip_columns = 160 },
+          horizontal = {
+            width = 0.95,
+            height = 0.9,
+            preview_width = 0.6,
+            prompt_position = "top",
+          },
           vertical = { width = 0.9, height = 0.9, preview_height = 0.6 },
         },
+        sorting_strategy = "ascending",
         vimgrep_arguments = {
           "rg",
           "--color=never",
@@ -25,17 +33,6 @@ return {
 
     vim.keymap.set("n", "<leader>pf", builtin.find_files, {})
     vim.keymap.set("n", "<leader>pg", builtin.git_files, {})
-    vim.keymap.set("n", "<leader>ps", function()
-      builtin.live_grep({
-        layout_strategy = "horizontal",
-        layout_config = {
-          width = 0.95,
-          height = 0.9,
-          preview_width = 0.6,
-          prompt_position = "top",
-        },
-        sorting_strategy = "ascending",
-      })
-    end, { desc = "Live grep (rg) in floating window" })
+    vim.keymap.set("n", "<leader>ps", builtin.live_grep, { desc = "Live grep (rg)" })
   end,
 }
