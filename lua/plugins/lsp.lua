@@ -35,6 +35,15 @@ return {
     end,
   },
   {
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" },
+    config = function()
+      require("mason-lspconfig").setup({
+        automatic_enable = true,
+      })
+    end,
+  },
+  {
     "neovim/nvim-lspconfig",
     config = function()
       vim.lsp.config("*", {
