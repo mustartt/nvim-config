@@ -11,6 +11,11 @@ vim.o.softtabstop = 4
 vim.o.expandtab = true
 vim.o.scrolloff = 8
 
+vim.opt.list = true
+vim.opt.listchars = {
+  trail = '·'
+}
+
 if os.getenv("SSH_TTY") ~= nil then
   vim.g.clipboard = {
     name = "OSC 52",
