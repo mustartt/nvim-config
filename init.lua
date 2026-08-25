@@ -13,7 +13,8 @@ vim.o.scrolloff = 8
 
 vim.opt.list = true
 vim.opt.listchars = {
-  trail = '·'
+  trail = '·',
+  tab = '  '
 }
 
 if os.getenv("SSH_TTY") ~= nil then
