@@ -28,6 +28,9 @@ return {
 
     require("nvim-tree").setup({
       on_attach = my_on_attach,
+      filters = {
+        git_ignored = false,
+      },
     })
 
     vim.keymap.set("n", "<leader>t", api.tree.toggle, {})
