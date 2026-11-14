@@ -33,8 +33,12 @@ end
 
 vim.filetype.add({
   extension = {
-    ll = 'llvm'
-  }
+    ll = 'llvm',
+    Jenkinsfile = 'groovy',
+  },
+  filename = {
+    ['.Jenkinsfile'] = 'groovy',
+  },
 })
 
 vim.api.nvim_create_autocmd("FileType", {

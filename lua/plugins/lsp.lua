@@ -57,6 +57,15 @@ return {
         root_markers = { ".git" },
       })
 
+      vim.lsp.config("pyright", {
+        before_init = function(_, config)
+          local venv_python = config.root_dir .. "/.venv/bin/python"
+          if vim.uv.fs_stat(venv_python) then
+            config.settings.python.pythonPath = venv_python
+          end
+        end,
+      })
+
       vim.lsp.enable("clangd")
 
       local bufopts = { noremap = true, silent = true }
